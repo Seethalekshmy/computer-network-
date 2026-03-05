@@ -30,6 +30,7 @@ void main(){
     }
     printf("TCP connection created\n");
     memset(&server_addr,'\0',sizeof(server_addr));// to clear garbage value
+    sever_addr.sin_family = AF_INET;
     server_addr.sin_port = htons(port);//assigning port number 
     server_addr.sin_addr.s_addr = inet_addr(ip);//convert char ip into binary
     n = bind(server_sock,(struct sockaddr*)&server_addr,sizeof(server_addr));
